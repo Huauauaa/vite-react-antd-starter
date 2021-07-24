@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
-
+import vitePluginImp from 'vite-plugin-imp';
 import { getThemeVariables } from 'antd/dist/theme';
 import commonjs from 'rollup-plugin-commonjs';
 import externalGlobals from 'rollup-plugin-external-globals';
@@ -26,6 +26,14 @@ export default defineConfig({
           .filter(Boolean)
           .join(''),
       },
+    }),
+    vitePluginImp({
+      libList: [
+        {
+          libName: 'antd',
+          style: name => `antd/lib/${name}/style/index.less`,
+        },
+      ],
     }),
   ],
   css: {
