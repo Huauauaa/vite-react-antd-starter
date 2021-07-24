@@ -19,5 +19,8 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'no-unused-vars': 'warn',
+    'react/react-in-jsx-scope': 'warn',
+    'react/jsx-no-undef': 'warn',
+    'no-undef': 'warn',
   },
 };

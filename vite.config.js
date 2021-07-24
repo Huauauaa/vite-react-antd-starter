@@ -4,7 +4,6 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 import { getThemeVariables } from 'antd/dist/theme';
 import themeVariables from './config/macaron';
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/vite-react-antd-starter/',
@@ -22,5 +21,11 @@ export default defineConfig({
         },
       },
     },
+  },
+  esbuild: {
+    jsxInject: [
+      `import React, { useState } from 'react';`,
+      `import { ConfigProvider, DatePicker, message, Alert, Button } from 'antd';`,
+    ].join(''),
   },
 });
