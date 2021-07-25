@@ -7,6 +7,15 @@ import externalGlobals from 'rollup-plugin-external-globals';
 import { injectHtml } from 'vite-plugin-html';
 import themeVariables from './config/macaron';
 
+const components = [
+  'ConfigProvider',
+  'DatePicker',
+  'message',
+  'Alert',
+  'Button',
+  'Menu',
+];
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/vite-react-antd-starter/',
@@ -53,7 +62,8 @@ export default defineConfig({
   esbuild: {
     jsxInject: [
       `import React, { useState } from 'react';`,
-      `import { ConfigProvider, DatePicker, message, Alert, Button } from 'antd';`,
+      `import PropTypes from 'prop-types';`,
+      `import { ${components.join(', ')} } from 'antd';`,
     ].join(''),
   },
   build: {

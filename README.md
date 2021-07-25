@@ -18,6 +18,6 @@
 - [x] 自定义主题
 - [x] 单元测试 (jest)
 - [x] 按 CDN 引入
-- [ ] 添加 router 和 menu
+- [x] 添加 router 和 menu
 - [ ] axios
 - [ ] mockjs

@@ -4,6 +4,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
+  parser: 'babel-eslint',
   extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   globals: {
     Atomics: 'readonly',
@@ -22,5 +23,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'warn',
     'react/jsx-no-undef': 'warn',
     'no-undef': 'warn',
+    'import/prefer-default-export': 'warn',
   },
 };

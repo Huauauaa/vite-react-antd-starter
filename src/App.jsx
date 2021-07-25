@@ -1,23 +1,21 @@
+// import React from 'react';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { routers } from './route';
 import './app.less';
 
 function App() {
-  const [date, setDate] = useState(null);
-  const handleChange = value => {
-    message.info(
-      `您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`,
-    );
-    setDate(value);
-  };
   return (
-    <div style={{ width: 400, margin: '100px auto' }}>
-      <DatePicker onChange={handleChange} />
-      <Alert
-        message="当前日期"
-        description={date ? date.format('YYYY年MM月DD日') : '未选择'}
-      />
-      <p>Lorem ipsum dolor sit amet.</p>
-      <Button type="primary">primary</Button>
-    </div>
+    <Router>
+      <Switch>
+        {routers.map(router => (
+          <Route path={router.path} exact={router.exact} key={router.path}>
+            <router.layout>
+              <router.component />
+            </router.layout>
+          </Route>
+        ))}
+      </Switch>
+    </Router>
   );
 }
 
