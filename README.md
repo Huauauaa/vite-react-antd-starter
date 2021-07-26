@@ -19,5 +19,5 @@
 - [x] 单元测试 (jest)
 - [x] 按 CDN 引入
 - [x] 添加 router 和 menu
-- [ ] axios
-- [ ] mockjs
+- [x] axios
+- [x] [mockjs](https://github.com/nuysoft/Mock/wiki)
