@@ -24,5 +24,6 @@ module.exports = {
     'react/jsx-no-undef': 'warn',
     'no-undef': 'warn',
     'import/prefer-default-export': 'warn',
+    'arrow-parens': ['warn', 'always'],
   },
 };
