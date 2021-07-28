@@ -12,12 +12,13 @@
 
 # vite-react-antd-starter
 
-## TODO
+## Features
 
 - [x] code format (eslint + prettier + lint-staged + husky)
-- [x] 自定义主题
-- [x] 单元测试 (jest)
-- [x] 按 CDN 引入
-- [x] 添加 router 和 menu
+- [x] custom themed
+- [x] Unit Tests (jest)
+- [x] import js by CDN
+- [x] add route r& menu
 - [x] axios
 - [x] [mockjs](https://github.com/nuysoft/Mock/wiki)
+- [x] git version

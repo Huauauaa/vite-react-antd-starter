@@ -14,6 +14,7 @@
     "antd": "^4.16.8",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
+    "git-revision-webpack-plugin": "^5.0.0",
     "mockjs": "^1.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",

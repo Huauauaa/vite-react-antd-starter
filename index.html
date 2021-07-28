@@ -8,7 +8,12 @@
     <%- injectScript %>
   </head>
   <body>
-    <div id="root"></div>
+    <div
+      id="root"
+      data-git-branch="<%- git.branch %>"
+      data-git-version="<%- git.version %>"
+      data-git-commit="<%- git.commitHash %>"
+    ></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
