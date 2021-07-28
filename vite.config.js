@@ -9,12 +9,9 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import { GitRevisionPlugin } from 'git-revision-webpack-plugin';
 import themeVariables from './config/macaron';
-
-console.log(GitRevisionPlugin);
+import packageInfo from './package.json';
 
 const gitRevisionPlugin = new GitRevisionPlugin();
-
-console.log(gitRevisionPlugin.version());
 
 try {
   const file = dotenv.parse(fs.readFileSync(`.env.local`));
@@ -51,6 +48,7 @@ export default () =>
             branch: gitRevisionPlugin.branch(),
             commitHash: gitRevisionPlugin.commithash(),
           },
+          packageInfo,
           injectScript: isProduction
             ? [
                 `<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>`,
@@ -64,7 +62,7 @@ export default () =>
         libList: [
           {
             libName: 'antd',
-            style: name => `antd/lib/${name}/style/index.less`,
+            style: (name) => `antd/lib/${name}/style/index.less`,
           },
         ],
       }),
@@ -108,7 +106,7 @@ export default () =>
         '/api': {
           target: process.env.VITE_PROXY || 'http://localhost:8080',
           changeOrigin: true,
-          rewrite: p => p.replace(/^\/api/, ''), // 将 /api 重写为空
+          rewrite: (p) => p.replace(/^\/api/, ''), // 将 /api 重写为空
         },
       },
     },

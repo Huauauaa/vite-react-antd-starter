@@ -1,6 +1,22 @@
 {
   "name": "vite-react-antd-starter",
   "version": "0.0.0",
+  "description": "Starter using Vite + React + Ant Design",
+  "keywords": [
+    "Vite",
+    "React",
+    "Antd"
+  ],
+  "homepage": "https://github.com/Huauauaa/vite-react-antd-starter#readme",
+  "bugs": {
+    "url": "https://github.com/Huauauaa/vite-react-antd-starter/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Huauauaa",
+    "email": "harvey0379@163.com",
+    "url": "https://twitter.com/Harvey27171313"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -22,3 +22,4 @@
 - [x] axios
 - [x] [mockjs](https://github.com/nuysoft/Mock/wiki)
 - [x] git version
+- [x] SEO
