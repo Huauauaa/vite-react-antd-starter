@@ -1,27 +1,15 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import vitePluginImp from 'vite-plugin-imp';
 import { getThemeVariables } from 'antd/dist/theme';
 import commonjs from 'rollup-plugin-commonjs';
 import externalGlobals from 'rollup-plugin-external-globals';
 import { injectHtml } from 'vite-plugin-html';
-import dotenv from 'dotenv';
-import fs from 'fs';
 import { GitRevisionPlugin } from 'git-revision-webpack-plugin';
 import themeVariables from './config/macaron';
 import packageInfo from './package.json';
 
 const gitRevisionPlugin = new GitRevisionPlugin();
-
-try {
-  const file = dotenv.parse(fs.readFileSync(`.env.local`));
-  // eslint-disable-next-line
-  for (const key of Object.keys(file)) {
-    process.env[key] = file[key];
-  }
-} catch (e) {
-  console.error(e);
-}
 
 const components = [
   'ConfigProvider',
@@ -35,8 +23,10 @@ const components = [
 const isProduction = process.env.NODE_ENV === 'production';
 
 // https://vitejs.dev/config/
-export default () =>
-  defineConfig({
+export default ({ mode }) => {
+  const { VITE_PROXY } = loadEnv(mode, process.cwd());
+  console.log(VITE_PROXY);
+  return defineConfig({
     base: '/vite-react-antd-starter/',
     plugins: [
       reactRefresh(),
@@ -104,10 +94,11 @@ export default () =>
     server: {
       proxy: {
         '/api': {
-          target: process.env.VITE_PROXY || 'http://localhost:8080',
+          target: VITE_PROXY || 'http://localhost:8080',
           changeOrigin: true,
           rewrite: (p) => p.replace(/^\/api/, ''), // 将 /api 重写为空
         },
       },
     },
   });
+};

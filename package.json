@@ -19,6 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:stage": "vite --mode stage",
     "build": "vite build",
     "serve": "vite preview",
     "prepare": "husky install",
