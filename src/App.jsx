@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        {routers.map(router => (
+        {routers.map((router) => (
           <Route path={router.path} exact={router.exact} key={router.path}>
             <router.layout>
               <router.component />

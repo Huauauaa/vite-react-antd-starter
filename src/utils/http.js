@@ -6,11 +6,11 @@ const http = axios.create({
 });
 
 http.interceptors.response.use(
-  result => {
+  (result) => {
     const { data } = result;
     return data;
   },
-  data => {
+  (data) => {
     const { response } = data;
     return Promise.reject(response.data);
   },
