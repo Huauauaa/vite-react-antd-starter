@@ -1,6 +1,18 @@
 # CHANGELOG
 
-## [v1.0.0] - Sun Feb 20 10:44:50 CST 2022
+## [v1.1.1] - 2020-02-20
+
+### feature
+
+- lazy loading
+
+## [v1.1.0] - 2020-02-20
+
+### build
+
+- use react-router-dom@6
+
+## [v1.0.0] - 2020-02-20
 
 ### release
 
