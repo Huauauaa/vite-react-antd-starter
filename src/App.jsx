@@ -1,20 +1,17 @@
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { routers } from './route';
+import { Routes, Route } from 'react-router-dom';
 import './app.less';
+import HomeView from './views/HomeView';
+import AboutView from './views/AboutView';
+import MenuLayout from './MenuLayout';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        {routers.map((router) => (
-          <Route path={router.path} exact={router.exact} key={router.path}>
-            <router.layout>
-              <router.component />
-            </router.layout>
-          </Route>
-        ))}
-      </Switch>
-    </Router>
+    <Routes>
+      <Route element={<MenuLayout />}>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/about" element={<AboutView />} />
+      </Route>
+    </Routes>
   );
 }
 

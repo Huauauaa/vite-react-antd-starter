@@ -25,7 +25,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   const { VITE_PROXY } = loadEnv(mode, process.cwd());
-  console.log(VITE_PROXY);
+
   return defineConfig({
     base: '/vite-react-antd-starter/',
     plugins: [

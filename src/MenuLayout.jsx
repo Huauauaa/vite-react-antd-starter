@@ -1,13 +1,14 @@
-import { useHistory } from 'react-router-dom';
+import { useLocation, Outlet, useNavigate } from 'react-router-dom';
 
-function MenuLayout({ children }) {
-  const history = useHistory();
-  const currentMenu = history.location.pathname;
+function MenuLayout() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentMenu = location.pathname;
   const onMenuClick = ({ key }) => {
-    if (history.location.pathname === key) {
+    if (location.pathname === key) {
       return;
     }
-    history.push(key);
+    navigate(key, { replace: true });
   };
 
   return (
@@ -21,17 +22,13 @@ function MenuLayout({ children }) {
         <Menu.Item key="/about">About</Menu.Item>
       </Menu>
 
-      {children}
+      <Outlet />
     </>
   );
 }
 
-MenuLayout.propTypes = {
-  children: PropTypes.node,
-};
+MenuLayout.propTypes = {};
 
-MenuLayout.defaultProps = {
-  children: null,
-};
+MenuLayout.defaultProps = {};
 
 export default MenuLayout;

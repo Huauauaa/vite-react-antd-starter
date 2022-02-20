@@ -18,8 +18,12 @@
 - [x] custom themed
 - [x] Unit Tests (jest)
 - [x] import js by CDN
-- [x] add route r& menu
+- [x] add [router](https://github.com/remix-run/react-router) & menu
 - [x] axios
 - [x] [mockjs](https://github.com/nuysoft/Mock/wiki)
 - [x] git version
 - [x] SEO
+- [ ] auth
+  - [ ] menu
+  - [ ] component
+- [ ] ...

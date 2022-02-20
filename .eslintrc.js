@@ -20,10 +20,10 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'no-unused-vars': 'warn',
-    'react/react-in-jsx-scope': 'warn',
-    'react/jsx-no-undef': 'warn',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-no-undef': 'off',
     'no-undef': 'warn',
-    'import/prefer-default-export': 'warn',
+    'import/prefer-default-export': 'off',
     'arrow-parens': ['warn', 'always'],
   },
 };
