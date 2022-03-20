@@ -5,12 +5,15 @@ import 'antd/dist/antd.less';
 import zhCN from 'antd/lib/locale/zh_CN';
 import App from './App';
 import './index.css';
+import AlertProvider from './providers/AlertProvider';
 
 ReactDOM.render(
   <ConfigProvider locale={zhCN}>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <AlertProvider>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </AlertProvider>
   </ConfigProvider>,
   document.getElementById('root'),
 );

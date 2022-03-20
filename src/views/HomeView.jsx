@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../mock/mock';
 import http from '../utils/http';
+import { useAlert } from '../hooks/UseAlert';
 
 function HomeView() {
+  const { alertCount, setAlertCount } = useAlert();
+
   const [date, setDate] = useState(null);
   const [info, setInfo] = useState('');
   useEffect(() => {
@@ -24,6 +27,8 @@ function HomeView() {
 
   return (
     <div style={{ width: 400, margin: '100px auto' }}>
+      {alertCount}
+      <Button onClick={() => setAlertCount(0)}>clear</Button>
       <DatePicker onChange={handleChange} />
       <Alert
         message="当前日期"
