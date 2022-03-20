@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../mock/mock';
 import http from '../utils/http';
 import { useAlert } from '../hooks/UseAlert';
+import MessageContext from '../context/MessageContext';
 
 function HomeView() {
   const { alertCount, setAlertCount } = useAlert();
@@ -26,17 +27,23 @@ function HomeView() {
   };
 
   return (
-    <div style={{ width: 400, margin: '100px auto' }}>
-      {alertCount}
-      <Button onClick={() => setAlertCount(0)}>clear</Button>
-      <DatePicker onChange={handleChange} />
-      <Alert
-        message="当前日期"
-        description={date ? date.format('YYYY年MM月DD日') : '未选择'}
-      />
-      <p>{info}</p>
-      <Button type="primary">primary</Button>
-    </div>
+    <MessageContext.Consumer>
+      {({ messageCount, setMessageCount }) => (
+        <div style={{ width: 400, margin: '100px auto' }}>
+          {messageCount}
+          <Button onClick={() => setMessageCount(0)}>clear message</Button>
+          {alertCount}
+          <Button onClick={() => setAlertCount(0)}>clear alert</Button>
+          <DatePicker onChange={handleChange} />
+          <Alert
+            message="当前日期"
+            description={date ? date.format('YYYY年MM月DD日') : '未选择'}
+          />
+          <p>{info}</p>
+          <Button type="primary">primary</Button>
+        </div>
+      )}
+    </MessageContext.Consumer>
   );
 }
 
