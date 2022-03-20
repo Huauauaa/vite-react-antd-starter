@@ -72,11 +72,7 @@ export default ({ mode }) => {
       },
     },
     esbuild: {
-      jsxInject: [
-        `import React, { useState, useEffect } from 'react';`,
-        `import PropTypes from 'prop-types';`,
-        `import { ${components.join(', ')} } from 'antd';`,
-      ].join(''),
+      jsxInject: [`import { ${components.join(', ')} } from 'antd';`].join(''),
     },
     build: {
       rollupOptions: {
